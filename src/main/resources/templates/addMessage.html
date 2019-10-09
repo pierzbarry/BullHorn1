@@ -1,29 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form action="#" th:action="@{/process}" th:object="${messageobject}" method="post">
-        <input type="hidden" th:field="*{id}" />
+<form action="#" th:action="@{/process}" th:object="${messageobject}" method=post>
+    <input type="hidden" th:field="*{id}">
 
-        Name: <br />
-        <input type="text" th:field="*{name}" />
-        <span th:if="${#fields.hasErrors('name')}"
-              th:errors="*{name}"></span><br /><br />
+    Name: <br />
+    <input type="text" th:field="*{name}" />
+    <span th:if="${#fields.hasErrors('name')}"
+          th:errors="*{name}"></span><br /><br />
 
-        Message: <br />
-        <textarea rows="5" th:field="*{content}" /><br /><br />
-        <span th:field="${#fields.hasErrors('content')}"
-              th:errors="*{content}"></span><br /><br />
+    Message: <br />
+    <textarea rows="5" th:field="*{content}" /><br /><br />
+    <span th:field="${#fields.hasErrors('content')}"
+          th:errors="*{content}"></span><br /><br />
 
-        Date Posted: <br />
-        <input type="text" th:field="*{postdate}" />
-        <span th:if="${#fields.hasErrors('postdate')}"
-              th:errors="*{postdate}"></span><br /><br />
+    Date Posted: <br />
+    <input type="text" th:field="*{postdate}" />
+    <span th:if="${#fields.hasErrors('postdate')}"
+          th:errors="*{postdate}"></span><br /><br />
 
-        <input type="submit" value="Submit" />
-    </form>
+    <input type="submit" value="Submit" />
+</form>
 </body>
 </html>
