@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+<a href="/add">Post a message</a>
+<table>
+    <tr>
+        <th class="spacing">Name</th>
+        <th class="spacing">Message</th>
+        <th>Posted On</th>
+    </tr>
+
+    <tr th:each="message : ${messages}">
+        <td th:text="${message.name}"></td>
+        <td th:text="${message.content}"></td>
+        <td class="align" th:text="${message.postdate}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${message.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${message.id})}">Detail</a> -
+            <a th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
