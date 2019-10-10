@@ -19,7 +19,7 @@ public class Message {
     private String name;
 
     @NotNull
-    @Size(min=10)
+    @Size(min=2)
     private String content;
 
     @NotNull

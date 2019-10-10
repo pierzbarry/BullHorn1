@@ -5,21 +5,21 @@
 <body>
 <nav th:replace="base :: navbar"></nav>
 
-<button type="button" class="btn btn-outline-dark"><a href="/add">Add a message</a></button>
+<button type="button" class="btn btn-outline-primary"><a href="/add">Add a message</a></button><br /><br />
 
 <div th:each="message : ${messages}">
     <div class="card" style="width: 18rem;">
         <div class="card-body">
             <p class="card-text">[[${message.content}]]</p>
+            <h6>From: [[${message.name}]] on [[${message.postdate}]]</h6>
+            <td>
+                <button type="button" class="btn btn-outline-danger btn-sm"><a th:href="@{/update/{id}(id=${message.id})}">Update</a></button>
+                <button type="button" class="btn btn-outline-danger btn-sm"><a th:href="@{/detail/{id}(id=${message.id})}">Detail</a></button>
+                <button type="button" class="btn btn-outline-danger btn-sm"><a th:href="@{/delete/{id}(id=${message.id})}">Delete</a></button>
+            </td>
         </div>
     </div>
-    <h5>From: [[${message.name}]] on [[${message.postdate}]]</h5>
-    <td>
-        <a th:href="@{/update/{id}(id=${message.id})}">Update</a> -
-        <a th:href="@{/detail/{id}(id=${message.id})}">Detail</a> -
-        <a th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
-    </td>
-</div>
+</div><br /><br />
 
 </body>
 </html>

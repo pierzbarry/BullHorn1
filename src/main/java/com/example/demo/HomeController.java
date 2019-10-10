@@ -26,7 +26,7 @@ public class HomeController {
 
     @GetMapping("/add")
     public String addMessage(Model model) {
-        model.addAttribute("messageobject", new Message());
+        model.addAttribute("message", new Message());
         return "addMessage";
     }
 
